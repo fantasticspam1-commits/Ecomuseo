@@ -1,0 +1,390 @@
+:root {
+    /* Color Palette (Logo Based) */
+    --bg-main: #FFFFFF; /* Bianco puro, come il logo */
+    --bg-secondary: #FDF7F4; /* Leggerissimo richiamo terracotta per le sezioni */
+    --text-main: #2C1B13; /* Testo scuro ad altissimo contrasto */
+    --text-muted: #8A5A44;
+    --accent-gold: #B54D22; /* Colore esatto del logo: terracotta scuro */
+    --accent-gold-hover: #DF6539;
+    --border-color: rgba(181, 77, 34, 0.15);
+    
+    /* Typography */
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background: radial-gradient(circle at center top, #ffffff 0%, #f4f4f4 100%);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Typography Utilities */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 700; /* Più bold per renderlo giovanile */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    padding: 60px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-logo {
+    width: 300px;
+    max-width: 90%;
+    height: auto;
+    margin: 50px auto -15px auto;
+    display: block;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.15));
+    transition: transform 0.3s ease;
+}
+.hero-logo:hover {
+    transform: scale(1.05); /* Effetto hover giocoso */
+}
+
+.hero-content .subtitle {
+    color: var(--accent-gold);
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-family: var(--font-body);
+}
+
+.hero-content .title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 6vw, 6rem);
+    font-weight: 900;
+    -webkit-text-stroke: 2px var(--accent-gold);
+    line-height: 1.1;
+    letter-spacing: -2px;
+    color: var(--accent-gold);
+    margin-top: -15px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
+    white-space: nowrap;
+    width: 100%;
+}
+
+.hero-content .description {
+    font-size: 1.3rem;
+    color: var(--text-main);
+    margin-bottom: 50px;
+    font-weight: 400;
+}
+
+.scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent-gold);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.mouse {
+    width: 26px;
+    height: 40px;
+    border: 2px solid var(--accent-gold);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+.wheel {
+    width: 4px;
+    height: 8px;
+    background-color: var(--accent-gold);
+    border-radius: 2px;
+    animation: scrollWheel 2s infinite;
+}
+
+@keyframes scrollWheel {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(15px); opacity: 0; }
+}
+
+/* Tour Section */
+.tour-section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 80px;
+    color: var(--text-main);
+}
+
+.timeline {
+    position: relative;
+    padding-left: 50px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 4px; /* Più spessa e giovanile */
+    height: 100%;
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+.step {
+    position: relative;
+    margin-bottom: 100px;
+}
+
+.step:last-child {
+    margin-bottom: 0;
+}
+
+.step-marker {
+    position: absolute;
+    left: -52px;
+    top: 0;
+    width: 48px;
+    height: 48px;
+    background-color: var(--bg-main);
+    border: 3px solid var(--accent-gold);
+    color: var(--accent-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    z-index: 2;
+    box-shadow: 0 0 20px rgba(181, 77, 34, 0.2);
+    transition: all 0.3s ease;
+}
+
+.step-content {
+    background-color: var(--bg-secondary);
+    border: none; /* Rimuoviamo il bordo per un look più pulito */
+    border-radius: 24px; /* Più arrotondato, stile giovanile */
+    padding: 40px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    box-shadow: 0 15px 35px rgba(181, 77, 34, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-content:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(181, 77, 34, 0.12);
+}
+
+.step-text {
+    flex: 1;
+}
+
+.step-text h3 {
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.step-text p {
+    color: var(--text-muted);
+    font-size: 1.15rem;
+}
+
+.step-video {
+    flex: 1;
+    border-radius: 16px; /* Più arrotondato */
+    overflow: hidden;
+    position: relative;
+    padding-top: 31.5%;
+    min-height: 250px;
+    background-color: var(--bg-main);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.step-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Bonus Section */
+.bonus-section {
+    padding: 100px 0;
+    background: var(--bg-secondary);
+    border-top: none;
+    border-bottom: none;
+    border-radius: 40px 40px 0 0; /* Arrotondamento gigante per staccare */
+    margin-top: 100px;
+}
+
+.bonus-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+}
+
+.bonus-badge {
+    display: inline-block;
+    background-color: var(--accent-gold);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(181, 77, 34, 0.2);
+    margin-bottom: 10px;
+}
+
+.bonus-text h2 {
+    font-size: 3.5rem;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.bonus-text p {
+    color: var(--text-muted);
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.bonus-video {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    padding-top: 56.25%;
+    box-shadow: 0 30px 60px rgba(181, 77, 34, 0.15);
+}
+
+.bonus-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-main);
+    padding: 60px 0 40px 0;
+    text-align: center;
+}
+
+footer p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+footer .credits {
+    margin-top: 10px;
+    color: var(--accent-gold);
+    font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .step-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .step-video {
+        width: 100%;
+        padding-top: 56.25%;
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline {
+        padding-left: 60px;
+    }
+    
+    .step-marker {
+        left: -60px;
+    }
+    
+    .section-title, .bonus-text h2 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    
+    .timeline {
+        padding-left: 0;
+    }
+    
+    .timeline::before {
+        display: none;
+    }
+    
+    .step-marker {
+        position: relative;
+        left: 0;
+        margin: 0 auto 20px auto;
+    }
+    
+    .step-content {
+        padding: 30px 20px;
+    }
+}
