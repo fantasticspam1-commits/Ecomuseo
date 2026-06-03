@@ -350,6 +350,14 @@ footer .credits {
 }
 
 @media (max-width: 768px) {
+    .hero-content .title {
+        font-size: clamp(1.2rem, 8vw, 3rem);
+        margin-top: -10px;
+    }
+    
+    .tour-section {
+        padding: 60px 0;
+    }
     
     .timeline::before {
         left: 20px;
@@ -364,11 +372,25 @@ footer .credits {
     }
     
     .section-title, .bonus-text h2 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        margin-bottom: 40px;
     }
 }
 
 @media (max-width: 480px) {
+    .hero-logo {
+        width: 220px;
+        margin-top: 20px;
+    }
+    
+    .hero-content .title {
+        font-size: clamp(1.1rem, 7vw, 2rem);
+    }
+    
+    .hero-content .description {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
     
     .timeline {
         padding-left: 0;
@@ -385,6 +407,14 @@ footer .credits {
     }
     
     .step-content {
-        padding: 30px 20px;
+        padding: 20px 15px;
+    }
+    
+    .step-text h3 {
+        font-size: 1.8rem;
+    }
+    
+    .step-text p {
+        font-size: 1rem;
     }
 }
